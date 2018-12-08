@@ -1,0 +1,131 @@
+{$optimization off}
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls,Unit2, Menus;
+
+
+type
+  TArray = array of integer;
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    MainMenu1: TMainMenu;
+    N1: TMenuItem;
+    Sum1: TMenuItem;
+    Sub1: TMenuItem;
+    Multiplication1: TMenuItem;
+    DivisionDiv1: TMenuItem;
+    DivisionMod1: TMenuItem;
+    Exit1: TMenuItem;
+    Label1: TLabel;
+    Label2: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure Sum1Click(Sender: TObject);
+    procedure Sub1Click(Sender: TObject);
+    procedure Multiplication1Click(Sender: TObject);
+    procedure DivisionDiv1Click(Sender: TObject);
+    procedure DivisionMod1Click(Sender: TObject);
+    procedure Exit1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+ Close;
+end;
+
+procedure TForm1.Sum1Click(Sender: TObject);
+var
+  s_field_first, s_field_second: string;
+  s_result: string;
+  o_result,o_number_a,o_number_b: LongArithmeticOperation;
+begin
+ s_field_first := Edit1.Text;
+ s_field_second := Edit2.Text;
+ o_number_a := LongArithmeticOperation.Create(s_field_first);
+ o_number_b := LongArithmeticOperation.Create(s_field_second);
+ ShowMessage(o_result.GetResult(o_result.sum(o_number_a,o_number_b)));
+end;
+
+procedure TForm1.Sub1Click(Sender: TObject);
+var
+  o_long,o_result: LongArithmeticOperation;
+  s_field_first, s_field_second: string;
+  s_result: string;
+  o_number_a,o_number_b: LongArithmeticOperation;
+begin
+ s_field_first := Edit1.Text;
+ s_field_second := Edit2.Text;
+ o_number_a := LongArithmeticOperation.Create(s_field_first);
+ o_number_b := LongArithmeticOperation.Create(s_field_second);
+ o_result := o_long.sub(o_number_a,o_number_b);
+ ShowMessage(o_long.GetResult(o_result));
+end;
+
+procedure TForm1.Multiplication1Click(Sender: TObject);
+var
+  o_long,o_result: LongArithmeticOperation;
+  s_field_first, s_field_second: string;
+  s_result: string;
+  o_number_a,o_number_b: LongArithmeticOperation;
+begin
+ s_field_first := Edit1.Text;
+ s_field_second := Edit2.Text;
+ o_number_a := LongArithmeticOperation.Create(s_field_first);
+ o_number_b := LongArithmeticOperation.Create(s_field_second);
+ o_result := o_long.multiplication(o_number_a,o_number_b);
+ ShowMessage(o_long.GetResult(o_result));
+end;
+
+procedure TForm1.DivisionDiv1Click(Sender: TObject);
+var
+  o_long,o_result: LongArithmeticOperation;
+  s_field_first, s_field_second: string;
+  s_result: string;
+  o_number_a,o_number_b: LongArithmeticOperation;
+begin
+ s_field_first := Edit1.Text;
+ s_field_second := Edit2.Text;
+ o_number_a := LongArithmeticOperation.Create(s_field_first);
+ o_number_b := LongArithmeticOperation.Create(s_field_second);
+ o_result := o_long.divisionDiv(o_number_a,o_number_b);
+ ShowMessage(o_long.GetResult(o_result));
+end;
+
+procedure TForm1.DivisionMod1Click(Sender: TObject);
+var
+  o_long,o_result: LongArithmeticOperation;
+  s_field_first, s_field_second: string;
+  s_result: string;
+  i_test: integer;
+  o_number_a,o_number_b: LongArithmeticOperation;
+begin
+ s_field_first := Edit1.Text;
+ s_field_second := Edit2.Text;
+ o_number_a := LongArithmeticOperation.Create(s_field_first);
+ o_number_b := LongArithmeticOperation.Create(s_field_second);
+ o_result := o_long.divisionMod(o_number_a,o_number_b);
+  ShowMessage(o_long.GetResult(o_result));
+end;
+
+procedure TForm1.Exit1Click(Sender: TObject);
+begin
+Close;
+end;
+
+end.
